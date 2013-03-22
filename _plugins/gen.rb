@@ -73,3 +73,52 @@ class ImpressRenderer < Redcarpet::Render::HTML
   end
 end
 
+
+module Jekyll
+  class UpcaseConverter < Converter
+    safe true
+
+    priority :low
+
+    def matches(ext)
+      ext =~ /prez/i
+    end
+
+    def output_ext(ext)
+      ".html"
+    end
+
+    def convert(text)
+
+  lines = text.split("\n")
+  lines.drop_while { |l| l =~ /^\s*$/ }
+
+  attrs = [""]
+
+  new_lines = []
+  lines.each_with_index do |line, i|
+    if line =~ /^=(.*)$/ && (i == 0 || lines[i-1] =~ /^(-\s*){3,}$/)
+      line =~ /^=(.*)$/
+      attrs[attrs.size-1] = $~.to_a[1]
+      next
+    elsif line =~ /^(-\s*){3,}$/
+      attrs << ""
+    end
+    new_lines << line
+  end
+
+  text = new_lines.join("\n")
+
+  require 'redcarpet'
+  ImpressRenderer.init_with_attrs attrs
+  # if File.exist?(STYLESHEET_HEAD)
+  #   ImpressRenderer.set_head(File.read(STYLESHEET_HEAD))
+  # else
+  #   ImpressRenderer.set_head("")
+  # end
+
+  m = Redcarpet::Markdown.new(ImpressRenderer, :autolink => true, :fenced_code_blocks => true, :tables => true)
+  m.render(text)
+    end
+  end
+end
