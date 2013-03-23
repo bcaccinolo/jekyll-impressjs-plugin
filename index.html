@@ -7,8 +7,7 @@ title: Hekyll Presentation Generator
   {% include slide.html %}
   <div class="page-break"></div>
 {% endfor %}
-{% unless site.simple-slideshow %}
+
 {% if site.overview %}
 <div id="overview" class="step" {% for attr in site.overview-data %} data-{{attr[0]}}="{{attr[1]}}"{% endfor %}></div>
 {% endif %}
-{% endunless %}
