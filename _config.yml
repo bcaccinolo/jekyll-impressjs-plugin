@@ -1,7 +1,7 @@
 pygments: true
 theme: "prez"
 
-overview: true # enabling this will add an overview slide at the end of the presentation
+overview: false # enabling this will add an overview slide at the end of the presentation
 overview-data:
   x: 1000    # set this to the center x point of the overview slide
   y: 1000    # set this to the center y point of the overview slide
