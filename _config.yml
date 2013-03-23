@@ -3,7 +3,7 @@ permalink: "/:title"
 markdown: redcarpet
 
 ## Hekyll Configuration ##
-theme: "hekyll" # add the name of a theme. Your theme's name should also be the name of the css file. (e.g. "hekyll" will be /css/themes/hekyll/hekyll.css).
+theme: "prez"
 
 simple-slideshow: false # true/false -- when enabled, slide positioning is ignored and a simple cross-fade will be used to transition between slides.
 
