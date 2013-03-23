@@ -1,13 +1,8 @@
 ---
 layout: default
-title: "Backbone.js, Twig, and Drupal"
+title: "Backbone.js & Sinatra"
 markdown: redcarpet
 ---
-
-
-# Backbone
-# &
-# Sinatra
 
 ---
 = slide data-x=1000 data-y=0
